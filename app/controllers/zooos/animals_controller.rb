@@ -1,4 +1,4 @@
-class AnimalsController < ApplicationController
+class Zooos::AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
   # GET /animals
