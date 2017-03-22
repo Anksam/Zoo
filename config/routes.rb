@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
   resources :zooos do
-    scope module: zooos do
-      resources :animals
+    scope module: :zooos do
+      resources :animals, except: [:new, :create]
     end
   end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'zooos#index'
+
+  get 'animals/new', to: 'zooos/animals#new', as: 'new_animal'
+  post 'animals', to: 'zooos/animals#create', as: 'create_animal'
+
 end

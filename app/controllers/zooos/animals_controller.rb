@@ -1,9 +1,10 @@
 class Zooos::AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  before_action :set_zooo, except: [:new, :create]
 
   # GET /animals
   def index
-    @animals = Animal.all
+    @animals = @zooo.animals
   end
 
   # GET /animals/1
@@ -24,7 +25,7 @@ class Zooos::AnimalsController < ApplicationController
     @animal = Animal.new(animal_params)
 
     if @animal.save
-      redirect_to @animal, notice: 'Animal was successfully created.'
+      redirect_to root_path, notice: 'Animal was successfully created.'
     else
       render :new
     end
@@ -49,6 +50,10 @@ class Zooos::AnimalsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_animal
       @animal = Animal.find(params[:id])
+    end
+
+    def set_zooo
+      @zooo = Zooo.find(params[:zooo_id])
     end
 
     # Only allow a trusted parameter "white list" through.
