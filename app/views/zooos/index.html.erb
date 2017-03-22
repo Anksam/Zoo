@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Zooos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>Zipcode</th>
+      <th>Published</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zooos.each do |zooo| %>
+      <tr>
+        <td><%= zooo.name %></td>
+        <td><%= zooo.city %></td>
+        <td><%= zooo.zipcode %></td>
+        <td><%= zooo.published %></td>
+        <td><%= link_to 'Show', zooo %></td>
+        <td><%= link_to 'Edit', edit_zooo_path(zooo) %></td>
+        <td><%= link_to 'Destroy', zooo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Zooo', new_zooo_path %>

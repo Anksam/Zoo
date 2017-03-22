@@ -1,0 +1,2 @@
+class Zooo < ApplicationRecord
+end
