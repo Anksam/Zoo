@@ -46,13 +46,12 @@ class ZooosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_zooo
-      @zooo = Zooo.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
     def zooo_params
       params.require(:zooo).permit(:name, :city, :zipcode, :published)
+    end
+
+    def set_zooo
+      @zooo = Zooo.find(params[:id])
     end
 end

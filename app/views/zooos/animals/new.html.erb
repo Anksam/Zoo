@@ -1,20 +1,8 @@
 <h1>New Animal</h1>
+<hr>
+<br>
 
-<%= form_tag create_animal_path, method: 'post' do %>
+<%= render partial: 'form', locals: { source: 'new' } %>
 
-  <%= text_field_tag "animal[name]" %>
-  <%= text_field_tag "animal[animal_type]" %>
-
-  <%= collection_select(:animal,
-    :zooo_id,
-    Zooo.all,
-    :id,
-    :name,
-    { selected: (params[:zooo_id] if params[:zooo_id])})
-  %>
-
-  <%= submit_tag 'Save' %>
-
-<% end %>
-
-<%= link_to 'Back', '#' %>
+<br><br>
+<%= link_to 'Cancle', root_path %>

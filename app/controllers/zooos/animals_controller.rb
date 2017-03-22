@@ -1,6 +1,6 @@
 class Zooos::AnimalsController < ApplicationController
-  before_action :set_animal, only: [:show, :edit, :update, :destroy]
   before_action :set_zooo, except: [:new, :create]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
   # GET /animals
   def index
@@ -13,7 +13,7 @@ class Zooos::AnimalsController < ApplicationController
 
   # GET /animals/new
   def new
-    @animal = Animal.new
+    #@animal = Animal.new
   end
 
   # GET /animals/1/edit
@@ -22,38 +22,40 @@ class Zooos::AnimalsController < ApplicationController
 
   # POST /animals
   def create
-    @animal = Animal.new(animal_params)
+    animal = Animal.new(animal_params)
 
-    if @animal.save
-      redirect_to root_path, notice: 'Animal was successfully created.'
+    if animal.save
+      redirect_to root_path, notice: 'Animal was successfully Added.'
     else
-      render :new
+      render :new, notice: 'Oops try again!.'
     end
   end
 
   # PATCH/PUT /animals/1
   def update
+    #@animal = @zooo.animals.find(params[:id]
+
     if @animal.update(animal_params)
-      redirect_to @animal, notice: 'Animal was successfully updated.'
+      redirect_to root_path, notice: 'Animal data was successfully updated.'
     else
-      render :edit
+      render :edit, notice: 'Oops try again!.'
     end
   end
 
   # DELETE /animals/1
   def destroy
     @animal.destroy
-    redirect_to animals_url, notice: 'Animal was successfully destroyed.'
+    redirect_to root_path, notice: 'Animal was successfully removed from zoo.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_animal
-      @animal = Animal.find(params[:id])
-    end
-
     def set_zooo
       @zooo = Zooo.find(params[:zooo_id])
+    end
+
+    def set_animal
+      @animal = @zooo.animals.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -20,5 +20,28 @@
   <%= @zooo.published %>
 </p>
 
-<%= link_to 'Edit', edit_zooo_path(@zooo) %> |
-<%= link_to 'Back', zooos_path %>
+<p>
+  <strong>Animal Count:</strong>
+  <%= @zooo.animals.count %>
+</p>
+
+<p>
+  <%= link_to 'Add New Animal', new_animal_path(zooo_id: @zooo_id) %> |
+  <%= link_to 'Edit', edit_zooo_path(@zooo) %> |
+  <%= link_to 'Back', zooos_path %>
+</p>
+
+<p>
+  <strong>List of Animals in <%= @zooo.name %></strong>
+</p>
+<hr>
+
+<% @zooo.animals.each do |animal| %>
+  <p>
+    <b>Animal - <%= animal.name %></b><br>
+    Type - <%= animal.animal_type %><br>
+    Updated on - <%= animal.updated_at.strftime("on %d/%m/%Y at %l:%M%P") %><br>
+    <b><%= link_to 'Edit', edit_zooo_animal_path(zooo_id: @zooo.id, id: animal.id) %></b> |
+    <b><%= link_to 'Remove from zoo', zooo_animal_path(zooo_id: @zooo.id, id: animal.id), method: :delete ,data: { confirm: 'Are you sure?' } %></b>
+  </p><hr>
+<% end %>

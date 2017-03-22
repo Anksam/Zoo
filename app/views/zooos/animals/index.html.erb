@@ -17,10 +17,10 @@
       <tr>
         <td><%= animal.name %></td>
         <td><%= animal.animal_type %></td>
-        <td><%= animal.zooo %></td>
-        <td><%= link_to 'Show', animal %></td>
-        <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
-        <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= animal.zooo.name %></td>
+        <td><%= link_to 'Show', '#' %></td>
+        <td><%= link_to 'Edit', '#' %></td>
+        <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

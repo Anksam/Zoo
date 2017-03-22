@@ -1,32 +1,19 @@
-<%= form_for(animal) do |f| %>
-  <% if animal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
+<%= form_tag form_route(source), method: form_action(source) do %>
 
-      <ul>
-      <% animal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <h3> Animal Name </h3>
+  <%= text_field_tag "animal[name]", (@animal.name if @animal) || "" %><br><br>
+  <h3> Animal Type </h3>
+  <%= text_field_tag "animal[animal_type]", (@animal.animal_type if @animal) || "" %><br><br>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+  <h3> Select Zoo </h3>
+  <%= collection_select(:animal,
+                        :zooo_id,
+                        Zooo.all,
+                        :id,
+                        :name,
+                        { selected: (params[:zooo_id] if params[:zooo_id])})
+  %><br><br><br><br>
 
-  <div class="field">
-    <%= f.label :animal_type %>
-    <%= f.text_field :animal_type %>
-  </div>
+  <%= submit_tag "Save" %><br><br>
 
-  <div class="field">
-    <%= f.label :zooo_id %>
-    <%= f.text_field :zooo_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

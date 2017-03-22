@@ -1,6 +1,7 @@
-<h1>Editing Animal</h1>
+<h1>Edit Animal Information.</h1>
+<hr>
+<br>
+<%= render partial: 'form', locals: { source: 'edit' } %>
 
-<%= render 'form', animal: @animal %>
-
-<%= link_to 'Show', @animal %> |
-<%= link_to 'Back', animals_path %>
+<br><br>
+<%= link_to 'Back', zooo_path(@zooo) %>
