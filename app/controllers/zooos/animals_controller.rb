@@ -1,3 +1,5 @@
+require 'pixabay_api.rb'
+
 class Zooos::AnimalsController < ApplicationController
   before_action :set_zooo, except: [:new, :create]
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
@@ -22,9 +24,10 @@ class Zooos::AnimalsController < ApplicationController
 
   # POST /animals
   def create
-    animal = Animal.new(animal_params)
-
-    if animal.save
+    @animal = Animal.new(animal_params)
+    if @animal.save
+      image = PixabayApi.complete_path(@animal.name, @animal.animal_type)
+      @animal.update_attribute :image, image
       redirect_to root_path, notice: 'Animal was successfully Added.'
     else
       render :new, notice: 'Oops try again!.'
@@ -33,8 +36,6 @@ class Zooos::AnimalsController < ApplicationController
 
   # PATCH/PUT /animals/1
   def update
-    #@animal = @zooo.animals.find(params[:id]
-
     if @animal.update(animal_params)
       redirect_to root_path, notice: 'Animal data was successfully updated.'
     else
