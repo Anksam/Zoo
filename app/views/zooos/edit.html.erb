@@ -3,4 +3,5 @@
 <%= render 'form', zooo: @zooo %>
 
 <%= link_to 'Show', @zooo %> |
-<%= link_to 'Back', zooos_path %>
+<%= link_to 'Back', zooos_path %> |
+<%= link_to 'Destroy', @zooo, method: :delete, data: { confirm: 'Are you sure?' } %>

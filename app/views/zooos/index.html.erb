@@ -1,33 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Zooos</h1>
+<h3 class="title-font-color">Manage Your Zoo's</h3>
+<hr>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>City</th>
-      <th>Zipcode</th>
-      <th>Published</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<% @zooos.each do |zooo| %>
+  <div class="col-md-4">
+    <div class="jumbotron text-center">
+      <h3 class="regular-color"><b><%= zooo.name %></b></h3><hr>
+      <h5 class="regular-color"><%= zooo.city %></h5><br>
+      <h5 class="regular-color">Updated <%= zooo.updated_at.strftime("on %d/%m/%Y at %l:%M%P") %></h5><hr>
+      <h4><b><%= link_to 'Show', zooo , class: 'regular-color' %></b></h4><br>
+    </div>
+  </div>
+<% end %>
+<!--
     <% @zooos.each do |zooo| %>
-      <tr>
-        <td><%= zooo.name %></td>
-        <td><%= zooo.city %></td>
-        <td><%= zooo.zipcode %></td>
-        <td><%= zooo.published %></td>
-        <td><%= link_to 'Show', zooo %></td>
-        <td><%= link_to 'Edit', edit_zooo_path(zooo) %></td>
-        <td><%= link_to 'Destroy', zooo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= zooo.name %>
+      <%= zooo.city %>
+      <%= zooo.zipcode %>
+      <%= zooo.published %>
+      <%= link_to 'Show', zooo %>
+      <%= link_to 'Edit', edit_zooo_path(zooo) %>
+      <%= link_to 'Destroy', zooo, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
-  </tbody>
-</table>
 
 <br>
-
-<%= link_to 'New Zooo', new_zooo_path %>
+-->

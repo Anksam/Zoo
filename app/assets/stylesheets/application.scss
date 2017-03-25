@@ -1,0 +1,33 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "colors";
+@import "fonts";
+
+body {
+    background-color: $white;
+}
+
+// Navbar
+.navbar-default {
+    background-color: $white;
+    border: 2px solid rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+      .navbar-brand {
+        color: $main;
+        font-weight: bold;
+        font-size: 2em;
+    }
+}
+
+// Jumbotron
+.jumbotron {
+  background-color: $white;
+  border: 2px solid rgba(0,0,0,0.1);
+  padding: 10px 10px 15px 10px;
+  margin: 0px 0px 20px 0px;
+}
+
+// Random
+.float-left {
+  float: left;
+}
