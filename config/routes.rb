@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :organizations
+  
   resources :zooos do
     scope module: :zooos do
       resources :animals, except: [:new, :create]
