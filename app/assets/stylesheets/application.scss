@@ -31,3 +31,21 @@ body {
 .float-left {
   float: left;
 }
+
+// From
+.form-control:focus {
+  border-color: $main;
+}
+
+.btn-default {
+  background: $main;
+  border: 1px solid $main;
+  color: $white;
+  margin-top: 1.5em;
+}
+
+.btn-default:hover {
+  background: $main;
+  border: 1px solid $main;
+  color: $white;
+}

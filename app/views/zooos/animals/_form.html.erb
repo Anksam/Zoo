@@ -1,19 +1,20 @@
 <%= form_tag form_route(source), method: form_action(source) do %>
 
-  <h3> Animal Name </h3>
-  <%= text_field_tag "animal[name]", (@animal.name if @animal) || "" %><br><br>
-  <h3> Animal Type </h3>
-  <%= text_field_tag "animal[animal_type]", (@animal.animal_type if @animal) || "" %><br><br>
+  <h4 class="title-font-color"> Animal Name </h4>
+  <%= text_field_tag "animal[name]", (@animal.name if @animal) || "", class: 'form-control' %><br>
 
-  <h3> Select Zoo </h3>
+  <h4 class="title-font-color"> Animal Type </h3>
+  <%= text_field_tag "animal[animal_type]", (@animal.animal_type if @animal) || "", class: 'form-control' %><br>
+
+  <h4 class="title-font-color"> Select Zoo for Animal </h4>
   <%= collection_select(:animal,
                         :zooo_id,
                         Zooo.all,
                         :id,
                         :name,
-                        { selected: (params[:zooo_id] if params[:zooo_id])})
-  %><br><br><br><br>
+                        { selected: (params[:zooo_id] if params[:zooo_id])} , class: 'form-control' )
+  %><br>
 
-  <%= submit_tag "Save" %><br><br>
+  <%= submit_tag "Submit 'N' Save Animal Data", class: 'btn btn-default form-control regular-color' %><br>
 
 <% end %>

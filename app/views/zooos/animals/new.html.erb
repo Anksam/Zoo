@@ -1,8 +1,10 @@
-<h1>New Animal</h1>
+<h2 class="title-font-color">Add New Animal</h2>
 <hr>
 <br>
 
 <%= render partial: 'form', locals: { source: 'new' } %>
 
-<br><br>
-<%= link_to 'Cancle', root_path %>
+<br>
+<center>
+  <%= link_to 'Cancle', root_path, class: 'regular-color' %>
+</center>

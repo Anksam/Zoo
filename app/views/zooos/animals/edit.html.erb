@@ -1,7 +1,9 @@
-<h1>Edit Animal Information.</h1>
+<h2 class="title-font-color">Edit Animal Information.</h2>
 <hr>
-<br>
+
 <%= render partial: 'form', locals: { source: 'edit' } %>
 
-<br><br>
-<%= link_to 'Back', zooo_path(@zooo) %>
+<br>
+<center>
+  <%= link_to 'Not Now? Get me back to Zoo.', zooo_path(@zooo), class: 'regular-color' %>
+</center>

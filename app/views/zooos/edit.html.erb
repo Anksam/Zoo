@@ -1,7 +1,11 @@
-<h1>Editing Zooo</h1>
+<h2 class="title-font-color">Edit Zooo</h2>
+<hr>
 
 <%= render 'form', zooo: @zooo %>
 
-<%= link_to 'Show', @zooo %> |
-<%= link_to 'Back', zooos_path %> |
-<%= link_to 'Destroy', @zooo, method: :delete, data: { confirm: 'Are you sure?' } %>
+<br>
+<center>
+  <%= link_to 'Show', @zooo, class: 'regular-color' %> |
+  <%= link_to 'Back', zooos_path, class: 'regular-color' %> |
+  <%= link_to 'Destroy', @zooo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'regular-color' %>
+</center>
