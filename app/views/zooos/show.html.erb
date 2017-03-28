@@ -1,47 +1,67 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @zooo.name %>
+  <h3>
+    <co class="title-font-color">Zoo Name - </co>
+    <co class="regular-color"><%= @zooo.name %></co>
+  </h3>
 </p>
 
 <p>
-  <strong>City:</strong>
-  <%= @zooo.city %>
+  <h3>
+    <co class="title-font-color">City - </co>
+    <co class="regular-color"><%= @zooo.city %></co>
+  </h3>
 </p>
 
 <p>
-  <strong>Zipcode:</strong>
-  <%= @zooo.zipcode %>
+  <h3>
+    <co class="title-font-color">Zipcode - </co>
+    <co class="regular-color"><%= @zooo.zipcode %></co>
+  </h3>
 </p>
 
 <p>
-  <strong>Published:</strong>
-  <%= @zooo.published %>
+  <h3>
+    <co class="title-font-color">Published - </co>
+    <co class="regular-color"><%= @zooo.published %></co>
+  </h3>
 </p>
 
 <p>
-  <strong>Animal Count:</strong>
-  <%= @zooo.animals.count %>
+  <h3>
+    <co class="title-font-color">Animals Count - </co>
+    <co class="regular-color"><%= @zooo.animals.count %></co>
+  </h3>
+</p>
+<br>
+<p>
+  <%= link_to 'Add New Animal', new_animal_path(zooo_id: @zooo_id), class: 'regular-color' %> |
+  <%= link_to 'Edit', edit_zooo_path(@zooo), class: 'regular-color' %> |
+  <%= link_to 'Back', zooos_path, class: 'regular-color' %>
 </p>
 
-<p>
-  <%= link_to 'Add New Animal', new_animal_path(zooo_id: @zooo_id) %> |
-  <%= link_to 'Edit', edit_zooo_path(@zooo) %> |
-  <%= link_to 'Back', zooos_path %>
-</p>
+
+<br>
+<hr>
 
 <p>
-  <strong>List of Animals in <%= @zooo.name %></strong>
+  <h4 class="title-font-color">List of Animals in <%= @zooo.name %></h4>
 </p>
 <hr>
 
 <% @zooo.animals.each do |animal| %>
-  <p>
-    <b>Animal - <%= animal.name %></b><br>
-    Type - <%= animal.animal_type %><br>
-    Updated on - <%= animal.updated_at.strftime("on %d/%m/%Y at %l:%M%P") %><br>
-    <b><%= link_to 'Edit', edit_zooo_animal_path(zooo_id: @zooo.id, id: animal.id) %></b> |
-    <b><%= link_to 'Remove from zoo', zooo_animal_path(zooo_id: @zooo.id, id: animal.id), method: :delete ,data: { confirm: 'Are you sure?' } %></b>
-  </p><hr>
+ <div class="col-md-4">
+   <div class="jumbotron">
+      <p><hr>
+        <b>
+          <co class="title-font-color">Animal -</co> <co class="regular-color"><%= animal.name %></co>
+        </b><br><br>
+          <co class="regular-color">Type - <%= animal.animal_type %></co><br><br>
+          <co class="regular-color">Updated on - <%= animal.updated_at.strftime("%d/%m/%Y at %l:%M%P") %></co><br><br>
+        <b><%= link_to 'Edit', edit_zooo_animal_path(zooo_id: @zooo.id, id: animal.id), class: 'regular-color' %></b> |
+        <b><%= link_to 'Remove from zoo', zooo_animal_path(zooo_id: @zooo.id, id: animal.id), method: :delete ,data: { confirm: 'Are you sure?' }, class: 'regular-color' %></b>
+      </p><hr>
+    </div>
+  </div>
 <% end %>

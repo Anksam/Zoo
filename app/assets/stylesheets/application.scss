@@ -32,6 +32,10 @@ body {
   float: left;
 }
 
+.align {
+  text-align: center;
+}
+
 // From
 .form-control:focus {
   border-color: $main;
