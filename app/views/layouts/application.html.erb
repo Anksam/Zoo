@@ -9,9 +9,14 @@
   </head>
 
   <body>
+
     <%= render 'layouts/nav' %>
+
+    <p class="notice alert"><%= notice %><%= alert %></p>
     <div class="container">
-      <%= yield %>
+        <%= yield %>
+      <div class="pad-top">
+      </div>
     </div>
   </body>
 </html>

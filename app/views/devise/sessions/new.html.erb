@@ -1,0 +1,36 @@
+<div class="jumbotron">
+  <h3 class="title-font-color">Organization Log In</h3><hr>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+    <div class="form-group">
+      <%= f.label :organization_name, class: 'title-font-color' %><br />
+      <%= f.email_field :organization_name, autofocus: true, class: 'form-control regular-color' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email, class: 'title-font-color' %><br />
+      <%= f.email_field :email, autofocus: true, class: 'form-control regular-color' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, class: 'title-font-color' %><br />
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control regular-color' %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, class: 'title-font-color' %>
+      </div>
+    <% end -%>
+
+    <div class="actions form-group">
+      <%= f.submit "Log in", class: 'btn btn-default form-control title-font-color' %>
+    </div>
+  <% end %>
+
+  <hr>
+  <center><%= render "devise/shared/links" %><center>
+  <hr>
+</div>

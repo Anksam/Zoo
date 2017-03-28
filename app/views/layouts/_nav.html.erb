@@ -11,16 +11,19 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right regular">
-        <li class = "content-form"><%= link_to '+ Add New Zooo', new_zooo_path %></li>
+        <% if organization_signed_in? %>
+          <li class = "content-form"><%= link_to '+ Add New Zooo', new_zooo_path %></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">some link<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_organization.organization_name %><span class="caret"></span></a>
               <ul class="dropdown-menu">
+                <li class = "content-form"><%= link_to "Logout", destroy_organization_session_path, method: :delete %></li>
                 <li role="separator" class="divider"></li>
-                <li class = "content-form"><%= link_to "some link", '#' %></li>
-                <li role="separator" class="divider"></li>
-                <li class = "content-form"><%= link_to "some link", '#' %></li>
               </ul>
             </li>
+        <% else %>
+          <li class = "content-form"><%= link_to "Create New Organization", new_organization_registration_path %></li>
+          <li class = "content-form"><%= link_to "Login to Organization Console", new_organization_session_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>
